@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as builder
+FROM ubuntu:22.04 as builder
 
 # metadata
 ARG VCS_REF
@@ -19,8 +19,7 @@ ENV RUST_BACKTRACE 1
 # add user
 RUN useradd -m -u 1000 -U -s /bin/sh -d /astar astar && \
    	mkdir /data && \
-    	chown -R astar:astar /data && \
-    	rm -rf /usr/bin /usr/sbin
+    	chown -R astar:astar /data 
 
 ARG PROFILE=release
 # add binary to docker image
